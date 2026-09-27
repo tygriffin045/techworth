@@ -10,6 +10,6 @@ A public tech playground: one small, self-contained demo app per folder under [`
 
 | App | Technology | Status |
 | --- | --- | --- |
-| _none yet_ | | |
+| [reladraw-live](apps/reladraw-live/) | [reladraw](https://github.com/reladraw/reladraw) 0.8.1 — text diagrams with relative placement | built |
 
 See [`AGENTS.md`](AGENTS.md) for the rules agents follow when adding demos.
