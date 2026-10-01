@@ -28,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav>
               <Link href="/products">Products</Link>
               <Link href="/compare">Vs reviews</Link>
+              <Link href="/amazon-devices">Amazon devices</Link>
               <Link href="https://theworthguide.com/">The Worth Guide</Link>
             </nav>
           </div>
