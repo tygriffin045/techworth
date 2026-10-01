@@ -1,15 +1,9 @@
-# tech-demos
+# TechWorth
 
-A public tech playground: one small, self-contained demo app per folder under [`apps/`](apps/), each exploring a new library, framework, API, or tool.
+Independent tech picks for The Worth Guide. Honest tradeoffs, no invented scores.
 
-- Every app runs on its own with `bun install && bun run dev` from its folder.
-- Each app has a `PLAN.md` (the MVP plan it was built from) and screenshots/video of it running in `docs/`.
-- [`tracking/seen-bookmarks.json`](tracking/seen-bookmarks.json) lists technologies that have been proposed, approved, or built.
+Public site is index.html. Intended host: https://tech.theworthguide.com/
 
-## Apps
+Amazon links use tag techworth20-20. Create that tracking ID in Associates before traffic, or swap the tag in index.html.
 
-| App | Technology | Status |
-| --- | --- | --- |
-| _none yet_ | | |
-
-See [`AGENTS.md`](AGENTS.md) for the rules agents follow when adding demos.
+apps/, skills/, and tracking/ are the old tech-demos playground. Leave them until the tech demos bot points at a different repo.
