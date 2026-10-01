@@ -1,4 +1,5 @@
 
+export const MARK = "Tech";
 export const SITE = "TechWorth";
 export const DOMAIN = "https://tech.theworthguide.com";
 export const TAG = "techworth20-20";
