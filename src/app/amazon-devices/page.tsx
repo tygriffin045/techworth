@@ -4,7 +4,8 @@ import { products, url } from "@/data/site";
 export const metadata = { title: "Amazon devices" };
 
 export default function Page() {
-  const list = products.filter((p) => p.category === "amazon-devices");
+  const order = ["dot", "dotmax", "show5", "firemax"];
+  const list = order.map((s) => products.find((p) => p.slug === s)).filter((p): p is (typeof products)[number] => Boolean(p));
   return (
     <div>
       <p className="note">Prime Big Deal Days is October 6–7, 2026. Deals start 12:01 a.m. PT on October 6.</p>
