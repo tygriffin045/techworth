@@ -17,7 +17,7 @@ export default function Page() {
             <span className="badge">{p.verdict}</span>
             <h3>{p.name}</h3>
             <p className="note">{p.tagline}</p>
-            <strong>{p.price}</strong>
+            <span className="cta">Check price on Amazon</span>
           </a>
         ))}
       </div>
