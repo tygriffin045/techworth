@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { products, url } from "@/data/site";
 
-export const metadata = { title: "Amazon devices" };
+export const metadata = { title: "Amazon devices", alternates: { canonical: "/amazon-devices" } };
 
 export default function Page() {
   const order = ["dot", "dotmax", "show5", "firemax"];
