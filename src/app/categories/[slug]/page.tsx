@@ -1,20 +1,38 @@
-
-import { categories, products, url } from "@/data/site";
-
-function picture(p: { image?: string; asin?: string }) {
-  if (p.image) return p.image;
-  if (p.asin) return `/products/${p.asin}.jpg`;
-  return "";
-}
-
 import { notFound } from "next/navigation";
-export function generateStaticParams() { return categories.map(c => ({ slug: c.slug })); }
-export default async function Page({ params }: { params: Promise<{slug:string}> }) {
-  const { slug } = await params;
-  const cat = categories.find(c => c.slug === slug);
-  if (!cat) notFound();
-  const list = products.filter(p => p.category === slug).slice(0, 10);
-  return <div><h1>{cat.name}</h1><p className="note">{cat.desc}</p><div className="grid">{list.map(p => <a key={p.slug} className="card" href={url(p)}>{picture(p) && <img src={picture(p)} alt={p.name}/>}<span className="badge">{p.verdict}</span><h3>{p.name}</h3><p className="note">{p.tagline}</p><span className="cta">Check price on Amazon</span></a>)}</div></div>;
-}
+import { categories } from "@/data/categories";
+import { getTopPicks, PICKS } from "@/data/top10";
+import { Picks } from "@/components/Picks";
+import { ProductBlock } from "@/components/ProductBlock";
+import type { Product } from "@/data/types";
+/** Lowercase a category name for headings, keeping proper nouns (Amazon). */
+const lc = (n: string) => (/^Amazon/.test(n) ? n : n.toLowerCase());
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; return { alternates: { canonical: `/categories/${slug}` } }; }
+function groups(list: Product[]) {
+  const m = new Map<string, { p: Product; rank: number }[]>();
+  list.forEach((p, i) => { const k = p.kind ?? "Other"; if (!m.has(k)) m.set(k, []); m.get(k)!.push({ p, rank: i + 1 }); });
+  return [...m.entries()];
+}
+export function generateStaticParams() { return categories.map((c) => ({ slug: c.slug })); }
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cat = categories.find((c) => c.slug === slug);
+  if (!cat) notFound();
+  const list = getTopPicks(slug);
+  const pk = PICKS[slug];
+  const label = (s: string) => (s === pk?.best ? "Best Overall" : s === pk?.premium ? "Premium Pick" : s === pk?.value ? "Value Pick" : undefined);
+  return <div>
+    <h1>{cat.name}</h1>
+    <p className="note">{cat.desc}</p>
+    <Picks category={slug} />
+    <h2>Top {list.length}: {lc(cat.name)}</h2>
+    {list.some((p) => p.kind) ? groups(list).map(([k, items]) => <section key={k}>
+      <h3>{k}</h3>
+      <div className="list">{items.map(({ p, rank }) => <ProductBlock key={p.slug} p={p} rank={rank} label={label(p.slug)} />)}</div>
+    </section>) : <div className="list">{list.map((p) => <ProductBlock key={p.slug} p={p} label={label(p.slug)} />)}</div>}
+  </div>;
+}
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cat = categories.find((c) => c.slug === slug);
+  return { title: cat ? `Best ${lc(cat.name)}` : undefined, description: cat?.desc, alternates: { canonical: `/categories/${slug}` } };
+}

@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/products",
     "/compare",
-    "/amazon-devices", ...categories.map((c) => `/categories/${c.slug}`),
+    ...categories.map((c) => `/categories/${c.slug}`),
     ...compares.map((c) => `/compare/${c.slug}`),
     "/guides",
     ...guides.map((g) => `/guides/${g.slug}`),
