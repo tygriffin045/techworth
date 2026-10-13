@@ -16,7 +16,11 @@ const OPTIONAL_PREMIUM = new Set<string>([]);
 /** Categories whose spec claims (mAh, W, Wh, MB/s) must be hedged ("per the listing"). */
 const SAFETY_CATS = new Set(["power", "storage"]);
 const RATING = /\b\d[\d,.]*\s?(mAh|W|Wh|MB\/s)(?![A-Za-z])/i;
-const HEDGE = /per the listing|\blisted\b|\blisting\b|\brated\b/i;
+const HEDGE = /per the listing|\blisted\b|\blisting\b|\brated\b|\bper (Sony|Bose|Apple|Amazon|Ring|Blink|Soundcore|Anker|JBL|Logitech)\b|\b(Sony|Bose|Apple|Amazon|Ring|Blink|Soundcore|Anker|JBL|Logitech|KVIDIO|BERIBES) (lists|says)\b/i;
+/** Headphones: noise-cancelling performance and battery-life claims must be hedged. */
+const HP_CLAIM = /\b\d[\d,.]*\s?(-?hours?|x)\b|\d+%|noise cancell?ing (that|which) (adapts|adjusts)|adapts to|(strong|best|quietest|bigger|better) (noise|cancel)/i;
+/** Amazon devices: video, zoom, coverage and sound claims must be hedged. */
+const AD_CLAIM = /\b\d[\d,.]*\s?(x|K\+?|sq\. ?ft\.?)(?![A-Za-z])|\bzoom\b|\bbass\b|\bfaster\b/i;
 const STANDARD = /\b(ANSI|UL|ETL|CSA|FCC|ISO|TÜV|TUV|MFi|Zoom|Microsoft Teams|IP6\d)\b/;
 
 function voice(owner: string, t: string) {
@@ -31,8 +35,10 @@ function voice(owner: string, t: string) {
   if (/\bcertified\b/i.test(t) && !STANDARD.test(t)) errors.push(`${owner}: certification/crash-test claim without a named standard: ${t.slice(0, 70)}`);
   if (/\b(safest|guaranteed?|will save your life|never fails?)\b/i.test(t)) errors.push(`${owner}: absolute safety claim: ${t.slice(0, 70)}`);
 }
-function hedge(owner: string, t: string) {
-  if (RATING.test(t) && !HEDGE.test(t)) errors.push(`${owner}: unhedged rating (add "per the listing"): ${t.slice(0, 70)}`);
+function hedge(owner: string, t: string, cat?: string) {
+  if (cat === "headphones" && HP_CLAIM.test(t) && !HEDGE.test(t)) errors.push(`${owner}: unhedged ANC/battery claim (add "per Sony" / "per the listing"): ${t.slice(0, 70)}`);
+  if (cat === "amazon-devices" && AD_CLAIM.test(t) && !HEDGE.test(t)) errors.push(`${owner}: unhedged device claim (add "per Amazon" / "per the listing"): ${t.slice(0, 70)}`);
+  if ((!cat || SAFETY_CATS.has(cat)) && RATING.test(t) && !HEDGE.test(t)) errors.push(`${owner}: unhedged rating (add "per the listing"): ${t.slice(0, 70)}`);
 }
 
 // Products
@@ -49,7 +55,7 @@ for (const p of products) {
   for (const k of ["price", "priceBand", "priceMin", "priceMax", "budget", "verdict"]) if (k in p) errors.push(`${p.slug}: leftover ${k} field`);
   const texts = [p.summary, p.tagline, p.whoItsFor, ...p.pros, ...p.cons];
   for (const t of texts) voice(p.slug, t);
-  if (SAFETY_CATS.has(p.category)) for (const t of [p.summary, p.tagline, ...p.pros]) hedge(p.slug, t);
+  for (const t of [p.summary, p.tagline, ...p.pros]) hedge(p.slug, t, p.category);
 }
 // Guides: same voice + hedge rules on roadside/safety guides; every pick must exist.
 const slugs = new Set(products.map((p) => p.slug));
@@ -58,7 +64,7 @@ for (const g of guides) {
     if (!slugs.has(pk.slug)) errors.push(`guide ${g.slug}: pick ${pk.slug} not found`);
     for (const t of [pk.quickNote, pk.verdict, ...pk.pros, ...pk.cons, pk.bestFor]) {
       voice(`guide ${g.slug}/${pk.slug}`, t);
-      if (SAFETY_CATS.has(g.category)) hedge(`guide ${g.slug}/${pk.slug}`, t);
+      hedge(`guide ${g.slug}/${pk.slug}`, t, g.category);
     }
   }
 }
@@ -74,7 +80,7 @@ for (const c of categories) {
   const n = getTopPicks(c.slug).length;
   if (TOP10_SHORT[c.slug]) {
     if (n < 7 || n > 10) errors.push(`${c.slug}: short list has ${n} items (allowed 7-10: ${TOP10_SHORT[c.slug]})`);
-    else if (n < 10) warnings.push(`${c.slug}: Top list has ${n} items (PENDING acceptance: ${TOP10_SHORT[c.slug]})`);
+    else if (n < 10) warnings.push(`${c.slug}: Top list has ${n} items (accepted short list: ${TOP10_SHORT[c.slug]})`);
   } else if (n !== 10) errors.push(`${c.slug}: Top 10 has ${n} items (need exactly 10)`);
   const pk = PICKS[c.slug];
   if (!pk) { errors.push(`${c.slug}: missing picks`); continue; }

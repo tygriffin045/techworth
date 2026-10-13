@@ -56,7 +56,7 @@ export const TOP10: Record<string, string[]> = {
     "logitech-mx-keys-s-wireless-keyboard",
     "logitech-m185-compact-ambidextrous-2-4",
     "k2",
-    "yeti",
+    "logitech-wave-keys-ergonomic-wireless-keyboard",
     "logitech-mk120-full-size-wired-keyboard",
     "amazon-basics-wired-qwerty-keyboard",
     "tecknet-wireless-mouse",
@@ -98,7 +98,7 @@ export const TOP10: Record<string, string[]> = {
   ]
 };
 
-/** Short Top lists (7-9) allowed only with a recorded reason. PENDING Maya's acceptance (spec exception). */
+/** Short Top lists (7-9) allowed only with a recorded reason. Accepted by Maya (spec exception). */
 export const TOP10_SHORT: Record<string, string> = {
   "webcams": "8 items: dropped the original Logitech C920 listing (no listing data on file; the C920x is its current version) and the Brio 101, a near-twin of the Brio 100; no other verified webcam listing on file",
   "amazon-devices": "9 items: dropped a second Echo Dot listing that is the same 5th-gen Dot in Charcoal; no other verified Amazon device listing on file"

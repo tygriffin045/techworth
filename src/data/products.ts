@@ -11,7 +11,7 @@ export const products: Product[] = [
     "summary": "The Sony WH-1000XM5 is our Best Overall pick for headphones. It's an over-ear wireless pair with eight microphones driving the noise cancelling, which adjusts itself to fit and surroundings. Sony lists up to 30 hours of battery, a 3-minute quick charge for about 3 hours of play, multipoint pairing and a carry case.",
     "tier": "$$$",
     "pros": [
-      "Noise cancelling that adapts to fit and surroundings",
+      "Noise cancelling that adapts to fit and surroundings, per Sony",
       "Up to 30 hours of battery, per the listing",
       "Multipoint pairing with two devices",
       "Carry case included"
@@ -119,7 +119,7 @@ export const products: Product[] = [
     "summary": "The Sony WH-1000XM4 is the previous Sony flagship. Sony lists Dual Noise Sensor noise cancelling, up to 30 hours of battery with a 10-minute charge for 5 hours, touch controls, Speak-to-Chat and five mics for calls.",
     "tier": "$$$",
     "pros": [
-      "Strong noise cancelling from the previous Sony flagship",
+      "Strong noise cancelling from the previous Sony flagship, per Sony",
       "Up to 30 hours of battery, per the listing",
       "Speak-to-Chat lowers volume when you talk"
     ],
@@ -138,7 +138,7 @@ export const products: Product[] = [
     "category": "headphones",
     "tagline": "The previous AirPods Pro, with a USB-C case",
     "summary": "The AirPods Pro 2 with a USB-C case are the previous generation of Apple's noise cancelling earbuds. Apple lists the H2 chip, up to 2x the noise cancelling of the first generation, Transparency and Adaptive Audio modes, and four sizes of silicone tips.",
-    "tier": "$$",
+    "tier": "$$$",
     "pros": [
       "Active noise cancelling and Transparency mode",
       "Four tip sizes, XS to L",
@@ -448,6 +448,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "Most people who want a phone topped up by the end of the day.",
     "amazonAsin": "B0CB1FW5FC",
+    "kind": "Power banks",
     "imageUrl": "/products/B0CB1FW5FC.jpg"
   },
   {
@@ -470,6 +471,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "Travelers who need to charge a laptop, not just a phone.",
     "amazonAsin": "B09VPHVT2Z",
+    "kind": "Power banks",
     "imageUrl": "/products/B09VPHVT2Z.jpg"
   },
   {
@@ -491,6 +493,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "Households that want a spare charger in every room and bag.",
     "amazonAsin": "B0B2WLSY9D",
+    "kind": "Wall chargers",
     "imageUrl": "/products/B0B2WLSY9D.jpg"
   },
   {
@@ -500,7 +503,7 @@ export const products: Product[] = [
     "category": "power",
     "tagline": "Compact three-port GaN wall charger for a laptop and phone",
     "summary": "The Anker 735 (Nano II 65W) is a three-port GaN wall charger about the size of an AirPods Pro case. Anker rates it at 65W from one port, per the listing, enough for a 13-inch MacBook Pro, and splits power when three devices are plugged in.",
-    "tier": "$$$",
+    "tier": "$$",
     "pros": [
       "65W from one port, per the listing",
       "Charges three devices at once",
@@ -512,6 +515,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "Laptop owners who want one charger for a laptop, phone and earbuds.",
     "amazonAsin": "B09C5RG6KV",
+    "kind": "Wall chargers",
     "imageUrl": "/products/B09C5RG6KV.jpg"
   },
   {
@@ -533,6 +537,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "People who always forget cables, or share power with friends.",
     "amazonAsin": "B0H2YM86Z9",
+    "kind": "Power banks",
     "imageUrl": "/products/B0H2YM86Z9.jpg"
   },
   {
@@ -554,6 +559,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "Couples, families or a spare for the car.",
     "amazonAsin": "B0GQH1QHDH",
+    "kind": "Power banks",
     "imageUrl": "/products/B0GQH1QHDH.jpg"
   },
   {
@@ -575,6 +581,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "MagSafe iPhone owners who want a quick boost without a cable.",
     "amazonAsin": "B0CSW947RH",
+    "kind": "Power banks",
     "imageUrl": "/products/B0CSW947RH.jpg"
   },
   {
@@ -596,6 +603,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "USB-C iPhone owners who need chargers and long cables in one box.",
     "amazonAsin": "B0C69HB8PM",
+    "kind": "Wall chargers",
     "imageUrl": "/products/B0C69HB8PM.jpg"
   },
   {
@@ -617,6 +625,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "Owners of Lightning iPhones who want long cables.",
     "amazonAsin": "B0B283QP2N",
+    "kind": "Wall chargers",
     "imageUrl": "/products/B0B283QP2N.jpg"
   },
   {
@@ -639,6 +648,7 @@ export const products: Product[] = [
     ],
     "whoItsFor": "Anyone who just needs spare charging cubes for phones.",
     "amazonAsin": "B0CPSBD68W",
+    "kind": "Wall chargers",
     "imageUrl": "/products/B0CPSBD68W.jpg"
   },
   {
@@ -648,7 +658,7 @@ export const products: Product[] = [
     "category": "storage",
     "tagline": "Small metal portable SSD from a big brand",
     "summary": "The Samsung T7 1TB is our Best Overall pick for storage. It's a pocket-sized portable SSD rated up to 1,050MB/s read and 1,000MB/s write, per the listing, over USB 3.2 Gen 2. Samsung says it can record 4K 60fps video directly from compatible cameras and iPhones.",
-    "tier": "$$",
+    "tier": "$$$",
     "pros": [
       "Up to 1,050MB/s read, per the listing",
       "Small metal body",
@@ -712,7 +722,7 @@ export const products: Product[] = [
     "category": "storage",
     "tagline": "The tougher SanDisk portable SSD",
     "summary": "The SanDisk Extreme 1TB is a compact USB-C portable SSD with a carabiner loop. SanDisk lists Time Machine support for Macs and file management from an iPhone or iPad through the Files app.",
-    "tier": "$$",
+    "tier": "$$$",
     "pros": [
       "Carabiner loop for a bag",
       "Works with iPhone and iPad through the Files app",
@@ -937,25 +947,25 @@ export const products: Product[] = [
     "imageUrl": "/products/B07QBPDWLS.jpg"
   },
   {
-    "slug": "yeti",
-    "name": "Blue Yeti USB Microphone",
+    "slug": "logitech-wave-keys-ergonomic-wireless-keyboard",
+    "name": "Logitech Wave Keys",
     "brand": "Logitech",
     "category": "input",
-    "tagline": "The USB mic for calls, podcasts and streams",
-    "summary": "The Blue Yeti is a USB condenser mic with a three-capsule array and four pickup patterns: cardioid, omni, bidirectional and stereo. Onboard controls cover headphone volume, gain, mute and pattern, and Blue VO!CE software adds voice effects.",
-    "tier": "$$$",
+    "tagline": "Ergonomic wave-shaped keyboard with a palm rest",
+    "summary": "The Logitech Wave Keys is a compact ergonomic keyboard with a wave-shaped layout and a memory-foam palm rest, meant to keep hands, wrists and forearms in a more natural position. It connects over Bluetooth or the Logi Bolt receiver, switches between three devices, and Logitech lists up to 3 years of battery life.",
+    "tier": "$$",
     "pros": [
-      "Four pickup patterns",
-      "Onboard gain, mute and headphone controls",
-      "Plug-and-play USB"
+      "Wave layout and cushioned palm rest",
+      "Bluetooth or Logi Bolt receiver",
+      "Easy-Switch between three devices",
+      "Up to 3 years of battery, per the listing"
     ],
     "cons": [
-      "Picks up room noise; a headset is quieter for calls",
-      "Large on a desk"
+      "The wave shape takes some getting used to",
+      "Palm rest isn't removable"
     ],
-    "whoItsFor": "Podcasters and streamers, or anyone who wants better call audio.",
-    "amazonAsin": "B00N1YPXW2",
-    "imageUrl": "/products/B00N1YPXW2.jpg"
+    "whoItsFor": "Office workers who want a more comfortable keyboard without a split design.",
+    "amazonAsin": "B0BTNY72VD"
   },
   {
     "slug": "logitech-mk120-full-size-wired-keyboard",
@@ -1456,7 +1466,7 @@ export const products: Product[] = [
     ],
     "cons": [
       "Small speaker, small bass",
-      "Needs an Amazon account and Alexa app"
+      "Has always-on mics; review the privacy and mic settings"
     ],
     "whoItsFor": "Most people who want an Alexa speaker for a bedroom or office.",
     "amazonAsin": "B09B94RL1R",
@@ -1477,7 +1487,7 @@ export const products: Product[] = [
     ],
     "cons": [
       "Small screen for video",
-      "Camera won't suit every room"
+      "Has a camera and mics; review the privacy, camera and mic settings"
     ],
     "whoItsFor": "Kitchens and nightstands where a glanceable screen helps.",
     "amazonAsin": "B09B2SBHQK",
@@ -1488,11 +1498,11 @@ export const products: Product[] = [
     "name": "Fire TV Stick 4K Select",
     "brand": "Amazon",
     "category": "amazon-devices",
-    "tagline": "Low-cost 4K streaming stick",
-    "summary": "The Fire TV Stick 4K Select is our Value pick for Amazon devices. It streams 4K with HDR10+ and runs the new Fire TV interface with Alexa+ search and the major streaming apps.",
+    "tagline": "Low-cost Fire TV stick for Ultra HD TVs",
+    "summary": "The Fire TV Stick 4K Select is our Value pick for Amazon devices. Per Amazon, it streams 4K with HDR10+ and runs the new Fire TV interface with Alexa+ search and the major streaming apps.",
     "tier": "$",
     "pros": [
-      "4K with HDR10+",
+      "4K with HDR10+, per Amazon",
       "Major streaming apps",
       "Alexa voice search"
     ],
@@ -1540,7 +1550,7 @@ export const products: Product[] = [
     ],
     "cons": [
       "Costs more than the Dot",
-      "Overkill for a bedroom"
+      "Has always-on mics; review the privacy and mic settings"
     ],
     "whoItsFor": "Living rooms and anyone building a smart home around Alexa.",
     "amazonAsin": "B0D6SZKGT4",
@@ -1551,17 +1561,18 @@ export const products: Product[] = [
     "name": "Ring Battery Doorbell 2K",
     "brand": "Ring",
     "category": "amazon-devices",
-    "tagline": "Battery video doorbell with 2K video",
-    "summary": "The Ring Battery Doorbell 2K records Retinal 2K video with up to 6x Enhanced Zoom, per the listing, plus Live View, Two-Way Talk and motion alerts. The built-in battery recharges over USB-C, though the cable isn't included.",
-    "tier": "$$",
+    "tagline": "Battery video doorbell, no wiring needed",
+    "summary": "The Ring Battery Doorbell 2K records Retinal 2K video with up to 6x Enhanced Zoom, per the listing, plus Live View, Two-Way Talk and motion alerts. Saving and reviewing recordings needs a Ring subscription plan. The built-in battery recharges over USB-C, though the cable isn't included.",
+    "tier": "$$$",
     "pros": [
       "2K video with up to 6x zoom, per the listing",
       "Two-Way Talk and Live View",
       "No wiring needed"
     ],
     "cons": [
+      "Recordings need a Ring plan",
       "Battery must come off the wall to charge",
-      "USB-C cable not included"
+      "Records video and audio at your door; review the privacy settings and local recording rules"
     ],
     "whoItsFor": "Renters and anyone who wants a doorbell camera without wiring.",
     "amazonAsin": "B0FHJ7TKZM",
@@ -1573,10 +1584,10 @@ export const products: Product[] = [
     "brand": "Blink",
     "category": "amazon-devices",
     "tagline": "Small plug-in indoor camera",
-    "summary": "The Blink Mini 2K+ is a compact plug-in indoor camera with 2K video, up to 4x zoom, night vision and two-way talk with noise cancellation. Person and vehicle detection needs an optional Blink subscription.",
+    "summary": "The Blink Mini 2K+ is a compact plug-in indoor camera with 2K video and up to 4x zoom, per the listing, plus night vision and two-way talk with noise cancellation. Person and vehicle detection needs an optional Blink subscription.",
     "tier": "$",
     "pros": [
-      "2K video and night vision",
+      "2K video and night vision, per the listing",
       "Two-way talk",
       "Small and easy to place"
     ],
@@ -1594,8 +1605,8 @@ export const products: Product[] = [
     "brand": "Blink",
     "category": "amazon-devices",
     "tagline": "Outdoor camera and video doorbell bundle",
-    "summary": "This Blink bundle pairs the Outdoor 4 1080p camera with the Battery Doorbell 2K+ and a Sync Module Core. Both run on included AA lithium batteries, are weather resistant, and the doorbell can connect to existing chime wiring.",
-    "tier": "$",
+    "summary": "Per the listing, this Blink bundle pairs the Outdoor 4 1080p camera with the Battery Doorbell 2K+ and a Sync Module Core. Both run on included AA lithium batteries, are weather resistant, and the doorbell can connect to existing chime wiring.",
+    "tier": "$$$",
     "pros": [
       "Camera and doorbell in one bundle",
       "Runs on included AA batteries",

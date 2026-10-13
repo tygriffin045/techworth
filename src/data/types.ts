@@ -14,5 +14,7 @@ export interface Product {
   whoItsFor: string;
   amazonAsin: string;
   imageUrl?: string;
+  /** Sub-group label inside a category (power: wall chargers vs power banks). */
+  kind?: string;
 }
 export interface Category { slug: CategorySlug; name: string; desc: string }

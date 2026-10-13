@@ -1,12 +1,12 @@
 import type { Product } from "@/data/types";
 import { AffiliateButton } from "./AffiliateButton";
 import { TierBadge } from "./TierBadge";
-export function ProductBlock({ p, label }: { p: Product; label?: string }) {
+export function ProductBlock({ p, label, rank }: { p: Product; label?: string; rank?: number }) {
   return (
     <article className="card prod" id={p.slug}>
       {label && <span className="badge">{label}</span>}
       {p.imageUrl && <img src={p.imageUrl} alt={p.name} loading="lazy" />}
-      <h3>{p.name} <TierBadge tier={p.tier} /></h3>
+      <h3>{rank ? `#${rank} ` : ""}{p.name} <TierBadge tier={p.tier} /></h3>
       <p className="note">{p.tagline}</p>
       <p>{p.summary}</p>
       <div className="pc">

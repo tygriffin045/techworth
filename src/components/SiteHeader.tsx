@@ -8,7 +8,7 @@ const links = [
   { href: "/compare", label: "Compare" },
   { href: "/guides", label: "Guides" },
   { href: "/products", label: "All products" },
-  { href: "/amazon-devices", label: "Amazon devices" },
+  { href: "/categories/amazon-devices", label: "Amazon devices" },
 ];
 const HUB = "https://theworthguide.com/";
 

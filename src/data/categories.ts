@@ -38,7 +38,7 @@ export const categories: Category[] = [
   {
     "slug": "amazon-devices",
     "name": "Amazon devices",
-    "desc": "Echo, Fire TV, and Kindle, newest to older."
+    "desc": "Echo speakers, Echo Show, Fire TV sticks, and Ring and Blink cameras."
   }
 ];
 export function getCategory(slug: string) { return categories.find((c) => c.slug === slug); }
