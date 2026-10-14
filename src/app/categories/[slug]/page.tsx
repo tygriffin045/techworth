@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { categories } from "@/data/categories";
 import { getTopPicks, PICKS } from "@/data/top10";
@@ -23,6 +24,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return <div>
     <h1>{cat.name}</h1>
     <p className="note">{cat.desc}</p>
+    <p className="giftlink">Holiday gift guide: <Link href="/guides/gifts-for-tech-lovers">Gifts for tech lovers →</Link></p>
     <Picks category={slug} />
     <h2>Top {list.length}: {lc(cat.name)}</h2>
     {list.some((p) => p.kind) ? groups(list).map(([k, items]) => <section key={k}>
