@@ -63,16 +63,7 @@ export const TOP10: Record<string, string[]> = {
     "wegear-usb-wireless-mouse-for-laptop",
     "sablute-wireless-mouse-for-laptop"
   ],
-  "webcams": [
-    "logitech-c920x-hd-pro-pc-webcam",
-    "logitech-mx-brio-ultra-hd-4k",
-    "emeet-c960-1080p-webcam-with-microphone",
-    "brio",
-    "emeet-s600-4k-webcam-for-streaming",
-    "logitech-c920e-hd-1080p-mic-enabled",
-    "acer-a610-1080p-webcam-for-pc",
-    "xweiryn-webcam-for-pc-hd-1080p"
-  ],
+  "webcams": ["logitech-c920x-hd-pro-pc-webcam", "logitech-mx-brio-ultra-hd-4k", "emeet-c960-1080p-webcam-with-microphone", "brio", "emeet-s600-4k-webcam-for-streaming", "logitech-c920e-hd-1080p-mic-enabled", "acer-a610-1080p-webcam-for-pc", "xweiryn-webcam-for-pc-hd-1080p", "amazon-basics-1080p-webcam", "obsbot-meet-2-4k-webcam"],
   "monitors": [
     "dell-24-monitor-se2426h-23-8",
     "dell-27-monitor-s2725qs",
@@ -85,24 +76,11 @@ export const TOP10: Record<string, string[]> = {
     "sansui-27-inch-curved-160hz-gaming",
     "sceptre-new-22-inch-gaming-monitor"
   ],
-  "amazon-devices": [
-    "dot",
-    "show5",
-    "amazon-fire-tv-stick-4k-select",
-    "firemax",
-    "dotmax",
-    "ring-battery-doorbell-2k-newest-model",
-    "blink-mini-2k-newest-model-plug",
-    "blink-outdoor-4-and-battery-doorbell",
-    "amazon-fire-tv-stick-hd-newest"
-  ]
+  "amazon-devices": ["dot", "show5", "amazon-fire-tv-stick-4k-select", "firemax", "dotmax", "ring-battery-doorbell-2k-newest-model", "blink-mini-2k-newest-model-plug", "blink-outdoor-4-and-battery-doorbell", "amazon-fire-tv-stick-hd-newest", "echo-spot"]
 };
 
 /** Short Top lists (7-9) allowed only with a recorded reason. Accepted by Maya (spec exception). */
-export const TOP10_SHORT: Record<string, string> = {
-  "webcams": "8 items: dropped the original Logitech C920 listing (no listing data on file; the C920x is its current version) and the Brio 101, a near-twin of the Brio 100; no other verified webcam listing on file",
-  "amazon-devices": "9 items: dropped a second Echo Dot listing that is the same 5th-gen Dot in Charcoal; no other verified Amazon device listing on file"
-};
+export const TOP10_SHORT: Record<string, string> = {};
 
 export const PICKS: Record<string, { best: string; premium?: string; value: string }> = {
   "headphones": {
