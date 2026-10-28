@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { categories, compares, DESC } from "@/data/site";
+import { categories, compares, DESC, DOMAIN } from "@/data/site";
 import { guides } from "@/data/guides";
 import { getHomeTop10 } from "@/data/top10";
 import { AffiliateButton } from "@/components/AffiliateButton";
@@ -11,6 +11,7 @@ const ROLE = { best: "Best Overall", premium: "Premium Pick", value: "Value Pick
 export default function Page() {
   const top = getHomeTop10();
   return <div>
+    <link rel="canonical" href={`${DOMAIN}/`} />
     <p className="note">Independent picks</p>
     <h1>Buy it once.</h1>
     <p>{DESC}</p>
@@ -38,4 +39,4 @@ export default function Page() {
   </div>;
 }
 
-export const metadata = { alternates: { canonical: "/" } };
+// Root canonical rendered directly: Next metadata strips the trailing slash from the root URL, and the sitemap lists it with one.
