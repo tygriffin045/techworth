@@ -1,3 +1,4 @@
+import { meta, BreadcrumbLd, ItemListLd } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { categories } from "@/data/categories";
@@ -22,6 +23,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const pk = PICKS[slug];
   const label = (s: string) => (s === pk?.best ? "Best Overall" : s === pk?.premium ? "Premium Pick" : s === pk?.value ? "Value Pick" : undefined);
   return <div>
+    <BreadcrumbLd trail={[[cat.name, `/categories/${cat.slug}`]]} />
+    <ItemListLd name={`Top ${list.length} ${lc(cat.name)}`} items={list.map((p) => ({ name: p.name, path: `/categories/${cat.slug}#${p.slug}` }))} />
     <h1>{cat.name}</h1>
     <p className="note">{cat.desc}</p>
     <p className="giftlink">Holiday gift guide: <Link href="/guides/gifts-for-tech-lovers">Gifts for tech lovers →</Link></p>
@@ -36,5 +39,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const cat = categories.find((c) => c.slug === slug);
-  return { title: cat ? `Best ${lc(cat.name)}` : undefined, description: cat?.desc, alternates: { canonical: `/categories/${slug}` } };
+  if (!cat) return {};
+  return meta({ path: `/categories/${slug}`, title: `Best ${lc(cat.name)}: Top 10`, description: `The Top 10 ${lc(cat.name)} worth buying: ${cat.desc} Best Overall, Premium and Value picks with budget tiers, no prices.` });
 }
